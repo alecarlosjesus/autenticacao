@@ -1,0 +1,78 @@
+<html lang="pt_br">
+  <head>
+    <title>Sistema</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * { box-sizing: border-box; } /* Estilos do body */ body { font-family:
+      Arial, Helvetica, sans-serif; margin: 0; } /* Header/ logo Titulo */
+      .header { padding: 80px; text-align: center; background: #8a0b02; color:
+      white; } /* Incrementando o tamanho da fonte do cabeçalho */ .header h1 {
+      font-size: 40px; } /* Estilo da barra de navegação do topo */ .navbar {
+      overflow: hidden; background-color: #010102; } /* Estilo da barra de
+      navegaçã por links */ .navbar a { float: left; display: block; color:
+      white; text-align: center; padding: 14px 20px; text-decoration: none; } /*
+      Hover mudando de cor */ .navbar a:hover { background-color: #ddd; color:
+      black; } /* Conteúdo das colunas */ .row { display: -ms-flexbox; /* IE10
+      */ display: flex; -ms-flex-wrap: wrap; /* IE10 */ flex-wrap: wrap; } .side
+      { -ms-flex: 30%; /* IE10 */ flex: 30%; background-color: #f1f1f1; padding:
+      20px; } /* Principal coluna */ .main { -ms-flex: 70%; /* IE10 */ flex:
+      70%; background-color: white; padding: 20px; } /* Imagens exemplos */
+      .amostraDeImg { background-color: #eca64a; width: 100%; padding: 20px; }
+      /* Rodapé */ .footer { text-align: center; background: #000000; color:
+      #fff; text-align: center; margin-top: 10%; } .footer h2 { text-align:
+      center; margin: auto 0; height: 100px; } /* Layout responsivo - Quando a
+      tela for menor que 700px wide, estacar as colunas no topo */ @media screen
+      and (max-width: 700px) { .row { flex-direction: column; } } /* Layout
+      responsivo - Quando a tela for menor que 400px wide, fazer com que os
+      links estaquem no topo um próximo ao outro */ @media screen and
+      (max-width: 400px) { .navbar a { float: none; width: 100%; } } /* Estilo
+      dos inputs */ input { width: 50%; padding: 12px; border: 1px solid
+      #474343; border-radius: 4px; box-sizing: border-box; display: block;
+      margin: 10px auto; } label { display: block; margin: auto; width: 50%;
+      font-weight: bold; } /* Estilo dos botões de envio */ input[type=submit] {
+      background-color: #041daa; color: white; } .container { background-color:
+      #f1f1f1; padding: 20px; } #message { display: none; background: #f1f1f1;
+      color: #000; position: relative; padding: 20px; margin-top: 10px; }
+      #message p { padding: 10px 35px; font-size: 18px; } .valid { color: green;
+      } .valid:before { position: relative; left: -35px; content: "✔"; } /*
+      Colocando uma marca vermelha quando o preenchimento não estiver correto.
+      */ .invalid { color: red; } .invalid:before { position: relative; left:
+      -35px; content: "✖"; }
+    </style>
+
+  </head>
+  <body>
+
+    <div class="header">
+      <h1>Meu Sistema</h1>
+      <h2>
+        <!-- A variável {{msg}} é um helper que permite que o nome seja renderizado como texto. -->
+        <strong>
+          {{#if msg}}
+            <!-- Aqui com o if estamos verificando se a variavel msg 
+            contém o valor logado será apresentado a mensagem abaixo. -->
+            <span>Bem vindo você está {{{msg}}}</span>
+          {{else}}
+            <span>Faça o login para poder acessar nosso sistema.</span>
+          {{/if}}
+        </strong>
+      </h2>
+    </div>
+
+    <div class="navbar">
+      <a href="/">Home</a>
+      <a href="/login">Login</a>
+      <a href="/logout">Logout</a>
+    </div>
+
+    <div>
+      {{{body}}}
+    </div>
+
+    <div class="footer">
+      <h2>RODAPÉ</h2>
+    </div>
+
+  </body>
+</html>
